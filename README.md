@@ -1,13 +1,13 @@
-#CarHub - Car Rental Booking System
-##Project Description
+# CarHub - Car Rental Booking System
+## Project Description
 CarHub is a web application designed for managing and booking car rentals. It enables users to browse available cars, view detailed information, and make reservations. The system provides a dynamic user experience with features for both car rental managers and customers, ensuring efficient management and booking processes.
 
-##Technologies Used
+## Technologies Used
 - **Backend:** Node.js, Express
 - **Database:** MySQL
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
 
-##Features
+## Features
 - **Car Listings:**
 - View available cars with images and details
 - Filter and sort cars based on various attributes
@@ -17,7 +17,7 @@ CarHub is a web application designed for managing and booking car rentals. It en
 - **Booking Functionality:**
 - Proceed to booking details from the car details page
 
-#Installation
+## Installation
 1. **Clone the Repository:**
 git clone https://github.com/yourusername/CarHub.git
 cd CarHub
@@ -27,7 +27,7 @@ npm install
 4. **Start the Server:**
 node node-test.js
 
-##Usage
+## Usage
 **Access the Application:**
 - Go to http://localhost:3000 in your browser.
  

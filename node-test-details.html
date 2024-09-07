@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        /* Add any additional CSS styles here */
+        #car-details {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #car-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .details-table {
+            padding: 10px;
+            font-size: 18px;
+        border: 5px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="car-details">
+        <div id="car-image">
+            <!-- Car image will be displayed here -->
+        </div>
+        <h1 style="font-size: 36px;">Car Details</h1>
+        <div id="details-content">
+            <!-- Details will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="previous-booking-button" onclick="history.back()">Return to previous page</button>
+        <a href="booking-form.html"><button class="previous-booking-button">Proceed to booking details</button></a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const modelName = urlParams.get('carId');
+            if (modelName) {
+                // Fetch car details based on modelName
+                fetch(`/cars?model=${encodeURIComponent(modelName)}`)
+                    .then(response => response.json())
+                    .then(carDetails => {
+                        const carImage = document.getElementById('car-image');
+                        const detailsContent = document.getElementById('details-content');
+                        carImage.innerHTML = `<img src="/${carDetails.image_url}" alt="${carDetails.make} ${carDetails.model}">`;
+                        detailsContent.innerHTML = `
+                        <table class="details-table">
+                            <tr>
+                                <td>Make: ${carDetails.make}</td>
+                            </tr>
+                            <tr>
+                                <td>Model: ${carDetails.model}</td>
+                            </tr>
+                            <tr>
+                                <td>Year: ${carDetails.year}</td>
+                            </tr>
+                            <tr>
+                                <td>Fuel: ${carDetails.fuel}</td>
+                            </tr>
+                            <tr>
+                                <td>Gearbox: ${carDetails.gearbox}</td>
+                            </tr>
+                            <tr>
+                                <td>Rental Charge: ₹${carDetails.rental_charge}</td>
+                            </tr>
+                            <tr>
+                                <td>Engine Size: ${carDetails.engine_size}</td>
+                            </tr>
+                </table>
+                `;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching car details:', error);
+                    });
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Cars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <div class="sub-header">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+
+    <header class="">
+        <nav>
+            <div>
+                <img src="images/carhub-logo.png" class="logo">
+            </div>
+            <ul class="navBar">
+                <li><a href="#">SignIn/SignUp</a></li>
+                <li class="about-dropdown">
+                    <a href="#">About</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="carlist1.html">Rent a Car</a></li>
+                <li><a href="#">Host Your Car</a></li>
+            </ul>
+        </nav>
+    </header><br><br>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+        <div class="container">
+            <div>
+                <h1 class="text-center">Checkout our collection of Cars</h1><br><br>
+                <h3 style="margin-left: 12px;">Choose the perfect car for yourself by applying filters</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="services">
+        <div class="container">
+            <form action="#" id="contact">
+                <div class="filters">
+
+                    <div class="form-group">
+                        <label>Vehicle Type :</label>
+
+                        <select class="form-control" id="vehicle-type">
+                            <option value="">View All</option>
+                            <option value="hatchback">Hatchback (4-5 seater)</option>
+                            <option value="sedan">Sedan (4-5 seater)</option>
+                            <option value="compactSUV">Compact SUV (5 seater)</option>
+                            <option value="SUV-MUV">SUV/MUV (7-8 seater)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rental charge(Daily) :</label>
+                        <select class="form-control" id="rental-charge">
+                            <option value="">View All</option>
+                            <option value="lessThan5000">Less than ₹5000</option>
+                            <option value="between5000And10000">Between ₹5000 and ₹10000</option>
+                            <option value="moreThan10000">More than ₹10000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Engine size :</label>
+                        <select class="form-control" id="engine-size">
+                            <option value="">View All</option>
+                            <option value="lessThan1200">Less than 1200cc</option>
+                            <option value="between1200And2000">Between 1200cc and 2000cc</option>
+                            <option value="moreThan2000">More than 2000cc</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fuel :</label>
+                        <select class="form-control" id="fuel">
+                            <option value="View All">View All</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gearbox :</label>
+                        <select class="form-control" id="gearbox">
+                            <option value="">View All</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="apply-filters text-center">
+                    <button type="button" onclick="applyFilters()">Apply filters</button>
+                </div>
+                <br>
+                <br>
+            </form>
+
+            <!-- Car Table -->
+            <div class="car-table">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="service-item left-space">
+                                <div class="car-info" id="car1" data-type="hatchback" data-rental-charge="4499" data-engine-size="1500" data-fuel="Petrol / Diesel" data-gearbox="Manual">
+                                    <img src="images/altroz.png" class="image-size" alt="Tata Altroz" onclick="redirectToDetails('car1')">
+                                    <div class="down-content">
+                                        <h4>Tata Altroz</h4>
+                                        <div style="margin-bottom:10px;">
+                                            <span>
+                                                <del> ₹6000 </del> &nbsp; ₹4499
+                                            </span>
+                                        </div>
+
+                                        <p>
+                                            <i>1500 cc</i> &nbsp;&nbsp;&nbsp;
+                                            <i>Petrol / Diesel</i> &nbsp;&nbsp;&nbsp;
+                                            <i>Manual</i> &nbsp;&nbsp;&nbsp;
+                                        </p>
+                                        <button class="view-details-button" onclick="redirectToDetails('car1')">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Add more cars here -->
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+            <br>
+
+            <nav>
+                <ul class="prev-next-bar">
+                    <li><a href="#page2"><img src="images/next.png" class="prev-next"></a></li>
+                </ul>
+            </nav>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="services">
+        <div class="container">
+            <!-- Car Table Page 2 -->
+            <div class="car-table">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="service-item left-space">
+                                <div class="car-info" id="car7" data-type="hatchback" data-rental-charge="4499" data-engine-size="1500" data-fuel="Petrol / Diesel" data-gearbox="Manual">
+                                    <img src="images/altroz.png" class="image-size" alt="Tata Altroz" onclick="redirectToDetails('car7')">
+                                    <div class="down-content">
+                                        <h4>Tata Altroz</h4>
+                                        <div style="margin-bottom:10px;">
+                                            <span>
+                                                <del> ₹6000 </del> &nbsp; ₹4499
+                                            </span>
+                                        </div>
+
+                                        <p>
+                                            <i>1500 cc</i> &nbsp;&nbsp;&nbsp;
+                                            <i>Petrol / Diesel</i> &nbsp;&nbsp;&nbsp;
+                                            <i>Manual</i> &nbsp;&nbsp;&nbsp;
+                                        </p>
+                                        <button class="view-details-button" onclick="redirectToDetails('car7')">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Add more cars here -->
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+            <br>
+
+            <nav>
+                <ul class="prev-next-bar">
+                    <li><a href="#"><img src="images/previous.png" class="prev-next"></a></li>
+                    <li>
+                        <h4>Showing cars 7 out 12</h4>
+                    </li>
+                </ul>
+            </nav>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <!-- Footer Starts Here -->
+    <footer>
+        <div class="footer-space">
+            <h3>
+                Copyright © 2024 CarHub</a>
+            </h3>
+        </div>
+    </footer>
+
+    <script>
+        function redirectToDetails(carId) {
+            var carElement = document.getElementById(carId);
+            var carName = carElement.querySelector('h4').innerText;
+            var carDetails = carElement.querySelector('p').innerText;
+            var carImageSrc = carElement.querySelector('img').src;
+            window.location.href = 'car-details.html?carName=' + encodeURIComponent(carName) + '&carDetails=' + encodeURIComponent(carDetails) + '&carImage=' + encodeURIComponent(carImageSrc);
+        }
+
+        function applyFilters() {
+            var selectedVehicleType = document.querySelector('#vehicle-type').value;
+            var selectedRentalCharge = document.querySelector('#rental-charge').value;
+            var selectedEngineSize = document.querySelector('#engine-size').value;
+            var selectedFuel = document.querySelector('#fuel').value;
+            var selectedGearbox = document.querySelector('#gearbox').value;
+
+            var carItems = document.querySelectorAll('.car-info');
+
+            var visibleCarsCount = 0;
+
+            carItems.forEach(function (car) {
+                var isVisible = true;
+
+                if (selectedVehicleType && selectedVehicleType !== car.dataset.type) {
+                    isVisible = false;
+                }
+
+                var rentalCharge = parseInt(car.dataset.rentalCharge);
+                if (selectedRentalCharge === 'lessThan5000' && rentalCharge > 5000) {
+                    isVisible = false;
+                } else if (selectedRentalCharge === 'between5000And10000' && (rentalCharge < 5000 || rentalCharge > 10000)) {
+                    isVisible = false;
+                } else if (selectedRentalCharge === 'moreThan10000' && rentalCharge < 10000) {
+                    isVisible = false;
+                }
+
+                var engineSize = parseInt(car.dataset.engineSize);
+                if (selectedEngineSize === 'lessThan1200' && engineSize > 1200) {
+                    isVisible = false;
+                } else if (selectedEngineSize === 'between1200And2000' && (engineSize < 1200 || engineSize > 2000)) {
+                    isVisible = false;
+                } else if (selectedEngineSize === 'moreThan2000' && engineSize < 2000) {
+                    isVisible = false;
+                }
+               
+                if (selectedFuel && selectedFuel !== 'View All' && !car.dataset.fuel.includes(selectedFuel)) {
+                    isVisible = false;
+                }
+
+                if (selectedGearbox && selectedGearbox !== 'View All' && !car.dataset.gearbox.includes(selectedGearbox)) {
+                    isVisible = false;
+                }
+
+                if (isVisible) {
+                    car.closest('td').style.display = ''; // Show the whole table cell
+                    visibleCarsCount++;
+                } else {
+                    car.closest('td').style.display = 'none'; // Hide the whole table cell
+                }
+            });
+
+            document.getElementById('carCount').textContent = 'Showing cars ' + visibleCarsCount + ' out of 6';
+        }
+    </script>
+
+</body>
+
+</html>

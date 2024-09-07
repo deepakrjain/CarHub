@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Cars</title>
+    <link rel="stylesheet" href="C:\Users\Deepak\OneDrive\Desktop\Study\Sem 4\WP\Car Rental Project\styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <style>
+        /* Add any additional CSS styles here */
+        .car-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .car-column {
+            width: calc(33% - 30px); /* Adjust width to fit three columns with margins */
+            margin-bottom: 20px;
+        }
+        .car-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .car-info img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="">
+        <nav class="navbar">
+            <div class="max-width">
+                <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+                <ul class="menu">
+                    <li><a href="Home.html" class="menu-btn">Home</a></li>
+                    <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+    
+                    <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                    <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+                </ul>
+                <div class="header-btn">
+                    <a href="Loading2.html" class="login">Login</a>
+                    <!-- <a href="#" class="getstart">Get Started</a> -->
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header><br><br>
+
+    <div id="carContainer" class="service-item">
+        <!-- Car data will be dynamically inserted here -->
+    </div>
+
+    <!-- JavaScript to fetch car data from the server -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/cars')
+                .then(response => response.json())
+                .then(cars => {
+                    const carContainer = document.getElementById('carContainer');
+                    let carRow = document.createElement('div');
+                    carRow.classList.add('car-row');
+                    let carsInRow = 0;
+                    cars.forEach(car => {
+                        if (carsInRow === 3) {
+                            carContainer.appendChild(carRow);
+                            carRow = document.createElement('div');
+                            carRow.classList.add('car-row');
+                            carsInRow = 0;
+                        }
+                        const column = document.createElement('div');
+                        column.classList.add('car-column');
+                        column.innerHTML = `
+                            <div class="car-info">
+                                <img src="${car.image_url}" alt="${car.make} ${car.model}" onclick="redirectToDetails('${car.make}_${car.model}')">
+                                <h4>${car.make} ${car.model}</h4>
+                                <div style="margin-bottom:10px;">
+                                    <span>
+                                        <del> ₹${car.original_price} </del> &nbsp; ₹${car.rental_charge}
+                                    </span>
+                                </div>
+                                <p>
+                                    <i>${car.engine_size} cc</i> &nbsp;&nbsp;&nbsp;
+                                    <i>${car.fuel}</i> &nbsp;&nbsp;&nbsp;
+                                    <i>${car.gearbox}</i> &nbsp;&nbsp;&nbsp;
+                                </p>
+                                <button class="view-details-button" onclick="redirectToDetails('${car.make}_${car.model}')">View Details</button>
+                            </div>
+                        `;
+                        carRow.appendChild(column);
+                        carsInRow++;
+                    });
+                    carContainer.appendChild(carRow); // Append the last row
+                })
+                .catch(error => {
+                    console.error('Error fetching car data:', error);
+                });
+        });
+
+        function redirectToDetails(carId) {
+            window.location.href = 'node-test-details.html?carId=' + encodeURIComponent(carId);
+        }
+    </script>
+</body>
+</html>

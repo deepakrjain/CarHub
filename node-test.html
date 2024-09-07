@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .header-btn .login{
+        padding: 15px 25px;
+        color:  #fff;
+        font-size:15px;
+        font-weight: 700;
+        background: #454545;
+       color: #FF6000;
+        border-radius:40px;
+        border: 2px solid #fff;
+    }
+     .login:hover{
+        background: #FF6000;
+        color: #454545;
+    
+    }
+    </style>
+    <title>View Cars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <style>
+        /* Add any additional CSS styles here */
+        .car-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .car-column {
+            width: calc(33% - 5px);
+            /* Adjust width to fit four columns with margins */
+            margin-bottom: 20px;
+        }
+
+        .car-info {
+            margin: 0 30px 0 30px;
+            height: 410px;
+            border: 2px solid rgb(105, 105, 105);
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .car-info:hover {
+            background-color: #FFA559;
+            /* Change background color on hover */
+            height: 390px;
+        }
+
+        .car-info img {
+            max-width: 100%;
+            height: 220px;
+        }
+
+        .image-size {
+            padding: 10px;
+            width: 350px;
+        }
+
+        .header-btn .login {
+            padding: 15px 25px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            background: #454545;
+            color: #FF6000;
+            border-radius: 40px;
+            border: 2px solid #fff;
+        }
+
+        .login:hover {
+            background: #FF6000;
+            color: #454545;
+        }
+
+        .specs {
+            font-size: 14px;
+            text-align: center;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="">
+        <nav class="navbar">
+            <div class="max-width">
+                <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+                <ul class="menu">
+                    <li><a href="Home.html" class="menu-btn">Home</a></li>
+                    <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+
+                    <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                    <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+                </ul>
+                <div class="header-btn">
+                    <a href="Loading2.html" class="login">Login</a>
+                    <!-- <a href="#" class="getstart">Get Started</a> -->
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    
+    <div id="carContainer" class="service-item" style="margin-top: 20px ;">
+        <!-- Car data will be dynamically inserted here -->
+    </div>
+
+
+    <!-- JavaScript to fetch car data from the server -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const localFilePath = 'C:\\Users\\Deepak\\OneDrive\\Desktop\\carhub\\public\\';
+            fetch('/cars')
+                .then(response => response.json())
+                .then(cars => {
+                    const carContainer = document.getElementById('carContainer');
+                    let carRow = document.createElement('div');
+                    carRow.classList.add('car-row');
+                    let carsInRow = 0;
+                    cars.forEach(car => {
+                        if (carsInRow === 3) {
+                            carContainer.appendChild(carRow);
+                            carRow = document.createElement('div');
+                            carRow.classList.add('car-row');
+                            carsInRow = 0;
+                        }
+                        const column = document.createElement('div');
+                        column.classList.add('car-column');
+                        // Construct the image URL using the local file path and image_url column value
+                        const localFilePath = 'C:\\Users\\Deepak\\OneDrive\\Desktop\\carhub\\public\\';
+
+                        const imageUrl = 'images/' + car.model.toLowerCase() + '.png';
+
+                        column.innerHTML = `
+                        <div class="car-info">
+                            <img class="image-size" src="${imageUrl}" alt="${car.make} ${car.model}" onclick="redirectToDetails('${car.make} ${car.model}')">
+                            <h1 class="text-center">${car.make} ${car.model}</h1>
+                            <div style="margin-bottom:10px; text-align: center;">
+                                <span style="font-size: 16px;">
+                                    <del style="text-decoration: line-through; font-size: 16px; margin-right: 40px;">₹${car.original_price}</del> &nbsp; ₹${car.rental_charge}
+                                </span>
+                            </div>
+                            <p class="text-center">
+                                <i class="specs">${car.engine_size} cc</i> &nbsp;&nbsp;&nbsp;
+                                <i class="specs">${car.fuel}</i> &nbsp;&nbsp;&nbsp;
+                                <i class="specs">${car.gearbox}</i> &nbsp;&nbsp;&nbsp;
+                            </p>
+                            <button class="view-details-button" onclick="redirectToDetails('${car.make} ${car.model}')">View Details</button>
+                        </div>
+                    `;
+                        carRow.appendChild(column);
+                        carsInRow++;
+                    });
+                    carContainer.appendChild(carRow); // Append the last row
+                })
+                .catch(error => {
+                    console.error('Error fetching car data:', error);
+                });
+        });
+
+
+        function redirectToDetails(carId) {
+            console.log('Redirecting to details page for car ID:', carId);
+            window.location.href = `/car-details.html?carId=${encodeURIComponent(carId)}`;
+        }
+
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;" alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+            <ul class="menu">
+                <li><a href="Home.html" class="menu-btn">Home</a></li>
+                <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+
+                <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+            </ul>
+            <div class="header-btn">
+                <a href="Loading2.html" class="login">Login</a>
+            </div>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="container">
+        <h1 class="text-center">Thank you for hosting your car.</h1>
+    </div><br><br>
+
+    <div class="text-center" id="countdown"></div>
+
+    <script>
+        var count = 5;
+
+        function countdown() {
+            document.getElementById('countdown').innerText = 'Redirecting you to the home page in ' + count;
+            count--;
+            if (count >= 0) {
+                setTimeout(countdown, 1000); // 1000 milliseconds = 1 second
+            } else {
+                window.location.href = 'Home.html'; // Redirect to homepage
+            }
+        }
+
+        countdown(); // Start the countdown immediately
+    </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;"  alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                       
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+</body>
+</html>

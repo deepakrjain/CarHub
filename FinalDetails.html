@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This is the script for the font poppins regular 400 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent your Car</title>
+    
+
+</head>
+<body>
+    <!-- this is script for the navigation bar  -->
+    <nav class="navbar">
+        <div class="max-width" >
+            <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+            <ul class="menu">
+                <li><a href="Home.html" class="menu-btn">Home</a></li>
+                <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+
+                <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+            </ul>
+            <div class="header-btn">
+                <a href="Loading2.html" class="login">Login</a>
+                 <a href="#" class="getstart">Get Started</a> ...
+            </div>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav> 
+    <div class="FinalDetails" style="display: block; margin: 30px auto 30px auto;">
+
+    <!-- <p>First Name: <span id="sellerFirstName"></span></p>
+    <p>Last Name: <span id="sellerLastName"></span></p>
+    <p>Email: <span id="sellerEmail"></span></p>
+    <p>Contact No: <span id="sellerContactNo"></span></p>
+    <p>State: <span id="sellerState"></span></p>
+    <p>City: <span id="sellerCity"></span></p> -->
+
+    <h3 style="text-align: center;"> Your Car Details:</h3>
+    <p>Car Brand: <span id="carBrand"></span></p>
+    <p>Year: <span id="year"></span></p>
+    <p>Fuel Type: <span id="fuelType"></span></p>
+    <p>Transmission: <span id="transmission"></span></p>
+    <p>Engine Size: <span id="engineSize"></span></p>
+    <p>Car Type: <span id="carType"></span></p>
+    <p>Car Number: <span id="carNumber"></span></p>
+    <p>Rent Price: <span id="rentPrice"></span></p>
+    <a href="Riderect.html"><button >Submit Details</button></a>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;"  alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                       
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </footer>
+    <script>
+        //  var sellerParams = new URLSearchParams(window.location.search);
+        
+        // // Set seller details in the HTML elements
+        // document.getElementById('sellerFirstName').textContent = sellerParams.get('firstName');
+        // document.getElementById('sellerLastName').textContent = sellerParams.get('lastName');
+        // document.getElementById('sellerEmail').textContent = sellerParams.get('email');
+        // document.getElementById('sellerContactNo').textContent = sellerParams.get('contactNo');
+        // document.getElementById('sellerState').textContent = sellerParams.get('state');
+        // document.getElementById('sellerCity').textContent = sellerParams.get('city');
+
+
+
+
+
+        // Retrieve URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        
+        // Set values in the HTML elements
+        document.getElementById('carBrand').textContent = urlParams.get('carBrand');
+        document.getElementById('year').textContent = urlParams.get('year');
+        document.getElementById('fuelType').textContent = urlParams.get('fuelType');
+        document.getElementById('transmission').textContent = urlParams.get('transmission');
+        document.getElementById('engineSize').textContent = urlParams.get('engineSize');
+        document.getElementById('carType').textContent = urlParams.get('carType');
+        document.getElementById('carNumber').textContent = urlParams.get('carNumber');
+        document.getElementById('rentPrice').textContent = urlParams.get('rentPrice');
+
+        document.getElementById('redirectButton').addEventListener('click', function() {
+         // Function to redirect to homepage
+    function redirectHome() {
+        window.location.href = 'Home.html';
+    }
+
+    // Redirect to homepage after 5 seconds when button is clicked
+    });
+    </script>
+
+    <!-- <script>
+        // Retrieve URL parameters for seller details
+        var sellerParams = new URLSearchParams(window.location.search);
+        
+        // Set seller details in the HTML elements
+        document.getElementById('sellerFirstName').textContent = sellerParams.get('firstName');
+        document.getElementById('sellerLastName').textContent = sellerParams.get('lastName');
+        document.getElementById('sellerEmail').textContent = sellerParams.get('email');
+        document.getElementById('sellerContactNo').textContent = sellerParams.get('contactNo');
+        document.getElementById('sellerState').textContent = sellerParams.get('state');
+        document.getElementById('sellerCity').textContent = sellerParams.get('city');
+
+        // Retrieve URL parameters for car details
+        var carParams = new URLSearchParams(window.location.search);
+        
+        // Set car details in the HTML elements
+        document.getElementById('carBrand').textContent = carParams.get('carBrand');
+        document.getElementById('year').textContent = carParams.get('year');
+        document.getElementById('fuelType').textContent = carParams.get('fuelType');
+        document.getElementById('transmission').textContent = carParams.get('transmission');
+        document.getElementById('engineSize').textContent = carParams.get('engineSize');
+        document.getElementById('carType').textContent = carParams.get('carType');
+        document.getElementById('carNumber').textContent = carParams.get('carNumber');
+        document.getElementById('rentPrice').textContent = carParams.get('rentPrice');
+        // Set more car details as needed
+    </script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Details</title>
+</head>
+<body>
+    <header class="">
+        <nav>
+            <div>
+                <img src="images/carhub-logo.png" class="logo">
+            </div>
+            <ul class="navBar">
+                <li><a href="#">SignIn/SignUp</a></li>
+                <li class="about-dropdown">
+                    <a href="#">About</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="carlist1.html">Rent a Car</a></li>
+                <li><a href="#">Host Your Car</a></li>
+            </ul>
+        </nav>
+    </header><br><br>
+    <div id="car-details">
+        <div id="car-image">
+            <!-- Car image will be displayed here -->
+        </div>
+        <h1>Car Details</h1>
+        <div id="details-content">
+            <!-- Details will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="previous-booking-button">Return to previous page</button>
+        <a href="booking-form.html"><button class="previous-booking-button">Proceed to booking details</button></a>
+    </div>
+    
+    <footer>
+        <div class="footer-space">
+            <h3>
+                Copyright © 2024 CarHub</a>
+            </h3>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var carName = urlParams.get('carName');
+
+    var carDetails = {
+        "Renault Duster": { "Make": "Renault", "Model": "Duster", "Year": "2016", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"12-16 kmpl", "Safety Rating": "4 stars","No. of Seats": "5"},
+        "Ford Ecosport": { "Make": "Ford", "Model": "Ecosport", "Year": "2015", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"14-17 kmpl", "Safety Rating": "4 stars","No. of Seats": "5"},
+        "Maruti Baleno": { "Make": "Maruti", "Model": "Baleno", "Year": "2018", "Fuel": "Petrol", 
+                "Gearbox": "Manual","Mileage":"16-20 kmpl", "Safety Rating": "2 stars","No. of Seats": "5"},
+        "Maruti Brezza": { "Make": "Maruti", "Model": "Brezza", "Year": "2018", "Fuel": "Diesel", 
+                "Gearbox": "Manual / Automatic","Mileage":"17-21 kmpl", "Safety Rating": "3 stars","No. of Seats": "5"},
+        "Tata Nexon": { "Make": "Tata", "Model": "Nexon", "Year": "2017", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"12-16 kmpl", "Safety Rating": "5 stars","No. of Seats": "5"},
+        "Mahindra XUV500": { "Make": "Mahindra", "Model": "XUV500", "Year": "2018", "Fuel": "Diesel", 
+                "Gearbox": "Manual / Automatic","Mileage":"9-12 kmpl", "Safety Rating": "4 stars","No. of Seats": "8"},
+        "Tata Altroz": { "Make": "Tata", "Model": "Altroz", "Year": "2019", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"13-17 kmpl", "Safety Rating": "5 stars","No. of Seats": "5"},
+        "Toyota Innova": { "Make": "Toyota", "Model": "Innova", "Year": "2017", "Fuel": "Diesel", 
+                "Gearbox": "Manual / Automatic","Mileage":"12-16 kmpl", "Safety Rating": "4 stars","No. of Seats": "8"},
+        "Hyundai i20": { "Make": "Hyundai", "Model": "i20", "Year": "2016", "Fuel": "Petrol", 
+                "Gearbox": "Manual","Mileage":"15-18 kmpl", "Safety Rating": "2 stars","No. of Seats": "5"},
+        "Maruti Dzire": { "Make": "Maruti", "Model": "Dzire", "Year": "2019", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"17-20 kmpl", "Safety Rating": "2 stars","No. of Seats": "5"},
+        "Maruti Ertiga": { "Make": "Maruti", "Model": "Ertiga", "Year": "2019", "Fuel": "Petrol / Diesel", 
+                "Gearbox": "Manual","Mileage":"16-19 kmpl", "Safety Rating": "2 stars","No. of Seats": "8"},
+        "Hyundai Creta": { "Make": "Hyundai", "Model": "Creta", "Year": "2016", "Fuel": "Petrol", 
+                "Gearbox": "Manual / Automatic","Mileage":"11-15 kmpl", "Safety Rating": "3 stars","No. of Seats": "5"}
+    };
+
+    var carImageDiv = document.getElementById("car-image");
+var carImage = document.createElement("img");
+carImage.src = "images/" + carDetails[carName].Model.toLowerCase() + ".png";
+carImage.alt = carName;
+carImageDiv.appendChild(carImage);
+
+    var detailsContent = document.getElementById("details-content");
+    var carDetailsHTML = "<table id='car-details-table'>";
+
+    // Retrieve the car details and construct the HTML table
+    for (var detail in carDetails[carName]) {
+        carDetailsHTML += "<tr><td><strong>" + detail + ":</strong></td><td>" + carDetails[carName][detail] + "</td></tr>";
+    }
+
+    carDetailsHTML += "</table>";
+    detailsContent.innerHTML = carDetailsHTML;
+
+    document.querySelector('.previous-booking-button:nth-of-type(1)').addEventListener('click', function () 
+    {
+        history.back();
+    });
+
+}
+    </script>
+</body>
+</html>

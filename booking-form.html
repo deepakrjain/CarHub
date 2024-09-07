@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .header-btn .login {
+            padding: 15px 25px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            background: #454545;
+            color: #FF6000;
+            border-radius: 40px;
+            border: 2px solid #fff;
+        }
+
+        .login:hover {
+            background: #FF6000;
+            color: #454545;
+
+        }
+
+        .form-container {
+            display: block;
+            margin: 0 auto 50px auto;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: #333;
+            font-size: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button[type="submit"] {
+            width: 100%;
+            padding: 15px 0;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <title>Rent Car Form</title>
+</head>
+
+<body>
+    <header class="">
+        <nav class="navbar">
+            <div class="max-width">
+                <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+                <ul class="menu">
+                    <li><a href="Home.html" class="menu-btn">Home</a></li>
+                    <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+
+                    <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                    <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+                </ul>
+                <div class="header-btn">
+                    <a href="Loading2.html" class="login">Login</a>
+                    <!-- <a href="#" class="getstart">Get Started</a> -->
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header><br><br>
+    <h2 class="text-center">Please fill out this form to complete your booking</h2><br>
+    <div class="form-container">
+        <h1 class="text-center">Car Rental Form</h1><br><br>
+        <form onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="customer-name">Customer Name :</label>
+                <input type="text" id="customer-name" name="customer-name" placeholder="Enter full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-number">Contact Number :</label>
+                <input type="tel" id="contact-number" name="contact-number" pattern="[0-9]{10}" placeholder="Enter 10 digit no." required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="abc@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="start-date">Start Date :</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end-date">End Date :</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="terms-checkbox" onchange="toggleSubmitButton()">
+                <label for="terms-checkbox">I accept the <a href="TnC.html" target="_blank">Terms and Conditions</a></label>
+            </div>
+
+            <div class="apply-filters">
+                <button type="submit" id="submit-button" disabled>Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;" alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var carId = urlParams.get('carId');
+        var [carMake, carModel] = carId.split(' ');
+        var carName = carMake + ' ' + carModel;
+        document.getElementById('car-name').textContent = carName;
+    }
+
+        function toggleSubmitButton() {
+            var checkbox = document.getElementById('terms-checkbox');
+            var submitButton = document.getElementById('submit-button');
+            submitButton.disabled = !checkbox.checked;
+        }
+
+        function submitForm(event) {
+    event.preventDefault();
+
+    // Get form data
+    const customerName = document.getElementById('customer-name').value;
+    const contactNumber = document.getElementById('contact-number').value;
+    const email = document.getElementById('email').value;
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const checkbox = document.getElementById('terms-checkbox');
+    const urlParams = new URLSearchParams(window.location.search);
+    const carId = urlParams.get('carId'); // Get the carId from URL parameter
+
+    // Check if required fields are empty or checkbox is not checked
+    if (!customerName || !contactNumber || !email || !startDate || !endDate || !checkbox.checked) {
+        alert('Please fill in all required fields and accept the terms and conditions.');
+        return;
+    }
+
+    // Redirect to thank you page with query parameters
+    // Redirect to thank you page with query parameters
+const redirectUrl = `booking-confirm.html?username=${encodeURIComponent(customerName)}&start-date=${encodeURIComponent(startDate)}&end-date=${encodeURIComponent(endDate)}&carId=${encodeURIComponent(carId)}`;
+window.location.href = redirectUrl;
+
+}
+
+    </script>
+</body>
+
+</html>

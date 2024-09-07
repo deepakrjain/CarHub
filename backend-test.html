@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Cars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Car Table -->
+<div class="car-table" id="carTable">
+    <!-- Car data will be populated here dynamically -->
+  </div>
+  
+  <script>
+    // Fetch car data from the backend
+    fetch('/cars')
+      .then(response => response.json())
+      .then(data => {
+        const carTable = document.getElementById('carTable');
+        carTable.innerHTML = ''; // Clear existing content
+  
+        // Populate car data dynamically
+        data.forEach(car => {
+          const carItem = `
+            <div class="service-item">
+              <div class="car-info">
+                <img src="${car.image}" class="image-size" alt="${car.make} ${car.model}" onclick="redirectToDetails('${car.id}')">
+                <div class="down-content">
+                  <h4>${car.make} ${car.model}</h4>
+                  <div style="margin-bottom:10px;">
+                    <span>
+                      <del>₹${car.original_price}</del> &nbsp; ₹${car.rental_charge}
+                    </span>
+                  </div>
+                  <p>
+                    <i>${car.engine_size} cc</i> &nbsp;&nbsp;&nbsp;
+                    <i>${car.fuel}</i> &nbsp;&nbsp;&nbsp;
+                    <i>${car.gearbox}</i> &nbsp;&nbsp;&nbsp;
+                  </p>
+                  <button class="view-details-button" onclick="redirectToDetails('${car.id}')">View Details</button>
+                </div>
+              </div>
+            </div>
+          `;
+          carTable.insertAdjacentHTML('beforeend', carItem);
+        });
+      })
+      .catch(error => console.error('Error fetching car data: ', error));
+  </script>  
+</body>
+
+</html>

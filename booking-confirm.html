@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Confirmed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Include JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        body {
+            position: relative; /* Added */
+        /* }
+
+        .footer {
+            position: absolute; /* Added */
+            bottom: 0; /* Added */
+            width: 100%; /* Added */
+        } */
+
+        .countdown {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="">
+        <!-- Navbar HTML -->
+        <nav class="navbar">
+            <div class="max-width">
+                <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+                <ul class="menu">
+                    <li><a href="Home.html" class="menu-btn">Home</a></li>
+                    <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+                    <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                    <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+                </ul>
+                <div class="header-btn">
+                    <a href="Loading2.html" class="login">Login</a>
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Booking Confirmation content -->
+    <div class="container">
+        <h1>Thank you <span id="username"></span>, for booking your<span id="car-details"></span> from <span id="start-date"></span> to <span id="end-date"></span>.</h1>
+    </div><br><br>
+    <div class="countdown" id="countdown" style="text-align: center; font-size: 24px;"></div><br><br> <!-- Added countdown timer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;" alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript for handling data and countdown -->
+    <script>
+        // Get data from URL query parameters
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get('username');
+        const carMake = params.get('make');
+        const carModel = params.get('model');
+        const startDate = params.get('start-date');
+        const endDate = params.get('end-date');
+
+        // Set data in the page
+        document.getElementById('username').textContent = username;
+        document.getElementById('car-details').textContent = 'car';
+        document.getElementById('start-date').textContent = startDate;
+        document.getElementById('end-date').textContent = endDate;
+
+        // Countdown timer
+        let timeLeft = 5;
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(() => {
+            if (timeLeft > 0) {
+                countdownElement.textContent = `Redirecting to HomePage in ${timeLeft}.`;
+                timeLeft--;
+            } else {
+                clearInterval(countdownInterval);
+                // Redirect to homepage after countdown
+                window.location.href = 'Home.html';
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

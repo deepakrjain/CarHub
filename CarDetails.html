@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- This is the script for the font poppins regular 400 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent your Car</title>
+</head>
+
+<body>
+    <div class="backgroundImage"></div>
+    <!-- this is script for the navigation bar  -->
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="Home.html">Car<span> Hub</span></a></div>
+            <ul class="menu">
+                <li><a href="Home.html" class="menu-btn">Home</a></li>
+                <li><a href="Loading4.html" class="menu-btn">AboutUs</a></li>
+
+                <li><a href="Loading3.html" class="menu-btn">T&C</a></li>
+                <li><a href="https://wa.me/9820805259"><i class="fab fa-whatsapp"></i>9510709206/8591287994</a></li>
+            </ul>
+            <div class="header-btn">
+                <a href="Loading2.html" class="login">Login</a>
+            </div>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="CarDetails" style="display: block; margin: 30px auto 30px auto;">
+        <h2 style="text-align: center;">Host Your Car</h2><br>
+
+        <form id="carForm" action="FinalDetails.html" onsubmit="submitForm(event)">
+            <label for="CarBrands">Car Brand:</label>
+            <select id="CarBrands" required>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Maruti">Maruti</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Tata">Tata</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Volkswagon">Volkswagon</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+
+
+
+            </select><br>
+            <label for="year">Year</label>
+            <input type="text" id="year" name="year"><br>
+            <label>Fuel Type</label>
+            <select id="FuelType" name="fuelType" required>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Electric">Electric</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="CNG">CNG</option>
+
+            </select><br>
+            <label for="Transmission">Gearbox</label required>
+            <select id="Transmission" name="Transmission">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select><br>
+            <label for="EngineSize">Engine</label required>
+            <select id="EngineSize" name="EngineSize" required>
+                <option value="Less than 1200cc">Less than 1200cc</option>
+                <option value="Between 1200 to 2000cc">Between 1200 to 2000cc</option>
+                <option value="more than 2000cc">more than 2000cc</option>
+            </select><br>
+
+            <label for="CarType">CarType</label required>
+            <select id="CarType" name="CarType" required>
+                <option value="Hatchback (4-5 seater)">Hatchback(4-5 seater)</option>
+                <option value="Sedan (4-5 seater)">Sedan(4-5 seater)</option>
+                <option value="Compact SUV (5 seater)">Compact SUV(5 seater)</option>
+                <option value="SUV/MUV (7-8 seater)">SUV/MUV (7-8 seater)</option>
+            </select><br>
+
+            <label for="Cnum">Car Number:</label>
+            <input id="Cnum" type="text" name="Cnum" placeholder="MH04AB9933" required><br>
+            <label for="imageInput">Upload image:</label>
+            <input type="file" id="imageInput" name="imageInput" accept="image/*" required><br>
+            <label for="rentprice">Rent Price(expected)</label>
+
+            <input type="text" id="rentprice" name="rentprice" placeholder="Rent price" required><br>
+            <input type="checkbox" id="terms-checkbox" style="margin-left: 10px;" onchange="toggleSubmitButton()">I
+            accept the <a href="TnC.html" target="_blank">Terms and Conditions</a></label><br>
+
+            <button id="submit-button" disabled>Submit</button> <!-- Disabled by default -->
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>RENTAL CARS</h4>
+                    <img src="images/carhub-logo.png" style="width: 200px; margin-top: 10px;"  alt="">
+                </div>
+                <div class="footer-col">
+                    <h4>HEAD OFFICE</h4>
+                    <p>NMIMS College,</p>
+                    <p>Sector - 34(C), Kharghar</p>
+                    <p>Navi Mumbai, Maharashtra</p>
+                    <p>410210</p>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+
+                    <p>9820805259/9510709206/8591287994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+
+                    <div class="wrapper">
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Facebook</div> -->
+                            <a href="https://www.instagram.com/deepakjain_7/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Instagram</div> -->
+                            <a href="https://www.instagram.com/__charles_26/"> <span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                        <div class="icon instagram">
+                            <!-- <div class="tooltip">Whatsapp</div> -->
+                            <a href="https://www.instagram.com/mrane.3/"><span><i
+                                        class="fab fa-instagram"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        function toggleSubmitButton() {
+            var checkbox = document.getElementById('terms-checkbox');
+            var submitButton = document.getElementById('submit-button');
+            submitButton.disabled = !checkbox.checked;
+        }
+
+        function submitForm(event) {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Gather form data
+            var carBrand = document.getElementById('CarBrands').value;
+            var year = document.getElementById('year').value;
+            var fuelType = document.getElementById('FuelType').value;
+            var transmission = document.getElementById('Transmission').value;
+            var engineSize = document.getElementById('EngineSize').value;
+            var carType = document.getElementById('CarType').value;
+            var carNumber = document.getElementById('Cnum').value;
+            var rentPrice = document.getElementById('rentprice').value;
+
+            // Redirect to new page with form data
+            window.location.href = "FinalDetails.html?carBrand=" + encodeURIComponent(carBrand) +
+                "&year=" + encodeURIComponent(year) +
+                "&fuelType=" + encodeURIComponent(fuelType) +
+                "&transmission=" + encodeURIComponent(transmission) +
+                "&engineSize=" + encodeURIComponent(engineSize) +
+                "&carType=" + encodeURIComponent(carType) +
+                "&carNumber=" + encodeURIComponent(carNumber) +
+                "&rentPrice=" + encodeURIComponent(rentPrice);
+        }
+    </script>
+</body>
+
+</html>

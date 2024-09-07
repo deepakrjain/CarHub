@@ -11,9 +11,11 @@ CarHub is a web application designed for managing and booking car rentals. It en
 **Car Listings:**
 - View available cars with images and details
 - Filter and sort cars based on various attributes
+
 **Car Details Page:**
 - Display detailed information about a selected car
 - Show car images and specifications
+
 **Booking Functionality:**
 - Proceed to booking details from the car details page
 
